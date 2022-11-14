@@ -1,0 +1,80 @@
+@use "var";
+@use "mixin";
+@import url("https://fonts.cdnfonts.com/css/roboto");
+@import url("https://fonts.cdnfonts.com/css/bebas-neue");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Roboto";
+}
+
+main {
+  @include mixin.figure(100vw, 100vh, transparent);
+  @include mixin.flex(column, start, center, 0);
+}
+.container {
+  @include mixin.figure(60%, 50%, white);
+  @include mixin.flex(column, start, center, 50px);
+  margin-top: 25px;
+  text-align: center;
+  span {
+    @include mixin.figure(100%, 10%, var.$primary);
+    @include mixin.flex(column, center, center, 0);
+    @include mixin.font(var.$font_size * 1.75, white, auto, bold);
+    @include mixin.position(relative, auto, auto, auto, auto, auto);
+    font-family: "Bebas Neue", sans-serif;
+  }
+  .btn_exit {
+    @include mixin.figure(var.$width * 0.35, var.$height * 0.35, #697500);
+    @include mixin.position(absolute, auto, 10px, auto, auto, auto);
+    @include mixin.flex(column, center, center, 0);
+    &_1 {
+      @include mixin.figure(var.$width * 0, var.$height * 0.175, transparent);
+      @include mixin.position(absolute, auto, auto, auto, auto, auto);
+      border-left: 3px solid white;
+      transform: rotate(45deg);
+    }
+    &_2 {
+      @include mixin.figure(var.$width * 0, var.$height * 0.175, transparent);
+      border-right: 3px solid white;
+      @include mixin.position(absolute, auto, auto, auto, auto, auto);
+      transform: rotate(-45deg);
+    }
+  }
+  p {
+    @include mixin.font(var.$font_size * 1.2, var.$text, auto, normal);
+    margin: 0 25px;
+  }
+  a {
+    @include mixin.font(var.$font_size * 1.1, #282020, auto, normal);
+    margin: 10px;
+  }
+  .btn {
+    @include mixin.figure(100%, 10%, transparent);
+    @include mixin.flex(row, center, center, 15px);
+    font-family: "Bebas Neue", sans-serif;
+    &_left {
+      @include mixin.figure(35%, 100%, var.$secondary);
+      padding-top: 5px;
+      text-shadow: 1px 1px #5a4929;
+    }
+    &_center {
+      @include mixin.figure(20%, 100%, var.$secondary);
+      padding-top: 5px;
+      text-shadow: 1px 1px #5a4929;
+    }
+    &_right {
+      @include mixin.figure(20%, 100%, var.$primary);
+      padding-top: 5px;
+      text-shadow: 1px 1px #5a4929;
+    }
+  }
+}
+
+.background_video {
+  @include mixin.figure(100vw, 100vh, transparent);
+  @include mixin.position(fixed, 0, 0, 0, 0, -1);
+  object-fit: cover;
+}
